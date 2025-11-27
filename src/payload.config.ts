@@ -5,33 +5,113 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
+import { formBuilderPlugin, fields } from '@payloadcms/plugin-form-builder'
+import { name, label, required, width, placeholder } from '@/plugins/formBuilder/fieldConfig'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import { Pages } from './collections/Pages'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
-  admin: {
-    user: Users.slug,
-    importMap: {
-      baseDir: path.resolve(dirname),
+    admin: {
+        user: Users.slug,
+        importMap: {
+            baseDir: path.resolve(dirname),
+        },
+        meta: {
+            icons: [
+                {
+                    rel: 'icon',
+                    type: 'image/png',
+                    url: '/api/media/file/favicon.ico',
+                },
+                {
+                    rel: 'apple-touch-icon',
+                    type: 'image/png',
+                    url: '/api/media/file/favicon.ico',
+                },
+            ],
+        },
     },
-  },
-  collections: [Users, Media],
-  editor: lexicalEditor(),
-  secret: process.env.PAYLOAD_SECRET || '',
-  typescript: {
-    outputFile: path.resolve(dirname, 'payload-types.ts'),
-  },
-  db: postgresAdapter({
-    pool: {
-      connectionString: process.env.DATABASE_URI || '',
+    collections: [Users, Media, Pages],
+    editor: lexicalEditor(),
+    secret: process.env.PAYLOAD_SECRET || '',
+    typescript: {
+        outputFile: path.resolve(dirname, 'payload-types.ts'),
     },
-  }),
-  sharp,
-  plugins: [
-    // storage-adapter-placeholder
-  ],
+    db: postgresAdapter({
+        pool: {
+            connectionString: process.env.DATABASE_URI || '',
+        },
+    }),
+    sharp,
+    plugins: [
+        // storage-adapter-placeholder
+        formBuilderPlugin({
+            /* */
+            fields: {
+                text: {
+                    fields: [
+                        {
+                            type: 'row',
+                            fields: [name, label],
+                        },
+                        {
+                            type: 'row',
+                            fields: [placeholder, width],
+                        },
+                        {
+                            type: 'row',
+                            fields: [required],
+                        },
+                    ],
+                },
+                email: {
+                    fields: [
+                        {
+                            type: 'row',
+                            fields: [name, label],
+                        },
+                        {
+                            type: 'row',
+                            fields: [placeholder, width],
+                        },
+                        {
+                            type: 'row',
+                            fields: [required],
+                        },
+                    ],
+                },
+                textarea: {
+                    fields: [
+                        {
+                            type: 'row',
+                            fields: [name, label],
+                        },
+                        {
+                            type: 'row',
+                            fields: [placeholder, width],
+                        },
+                        {
+                            type: 'row',
+                            fields: [required],
+                        },
+                    ],
+                },
+            },
+            formOverrides: {
+                admin: {
+                    group: 'Forms',
+                },
+            },
+            formSubmissionOverrides: {
+                admin: {
+                    group: 'Forms',
+                },
+            },
+        }),
+    ],
 })
