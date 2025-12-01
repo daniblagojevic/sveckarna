@@ -1,8 +1,6 @@
 import type { FormBlock as FormBlockProps } from '@/payload-types'
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import Image from 'next/image'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
 import Form from '@/components/Form'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
