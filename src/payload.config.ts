@@ -7,6 +7,8 @@ import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 import { formBuilderPlugin, fields } from '@payloadcms/plugin-form-builder'
 import { name, label, required, width, placeholder } from '@/plugins/formBuilder/fieldConfig'
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
+//import { resendAdapter } from '@payloadcms/email-resend'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
@@ -114,4 +116,25 @@ export default buildConfig({
             },
         }),
     ],
+
+    email: nodemailerAdapter({
+        defaultFromAddress: 'info@sveckarna.si',
+        defaultFromName: 'Svečkarna',
+        // Nodemailer transportOptions
+        transportOptions: {
+            host: process.env.SMTP_HOST,
+            port: 465,
+            auth: {
+                user: process.env.SMTP_USER,
+                pass: process.env.SMTP_PASS,
+            },
+        },
+    }),
+    /*
+    email: resendAdapter({
+        defaultFromAddress: 'info@sveckarna.si',
+        defaultFromName: 'Svečkarna',
+        apiKey: process.env.RESEND_API_KEY || '',
+    }),
+    */
 })
