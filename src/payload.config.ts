@@ -7,8 +7,8 @@ import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 import { formBuilderPlugin, fields } from '@payloadcms/plugin-form-builder'
 import { name, label, required, width, placeholder } from '@/plugins/formBuilder/fieldConfig'
-import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
-//import { resendAdapter } from '@payloadcms/email-resend'
+//import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
+import { resendAdapter } from '@payloadcms/email-resend'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
@@ -116,7 +116,7 @@ export default buildConfig({
             },
         }),
     ],
-
+    /*
     email: nodemailerAdapter({
         defaultFromAddress: 'info@sveckarna.si',
         defaultFromName: 'Svečkarna',
@@ -130,11 +130,10 @@ export default buildConfig({
             },
         },
     }),
-    /*
+    */
     email: resendAdapter({
         defaultFromAddress: 'info@sveckarna.si',
         defaultFromName: 'Svečkarna',
         apiKey: process.env.RESEND_API_KEY || '',
     }),
-    */
 })
