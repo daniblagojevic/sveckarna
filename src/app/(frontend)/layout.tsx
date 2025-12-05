@@ -8,6 +8,10 @@ import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 config.autoAddCss = false
 
+import { getServerSideURL } from '@/utilities/getURL'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import type { Metadata } from 'next'
+
 import './globals.css'
 
 const inter = Inter({
@@ -19,11 +23,6 @@ const mollieGlaston = localFont({
     src: '../../../public/fonts/MollieGlaston.ttf',
     variable: '--font-mollie-glaston',
 })
-
-export const metadata = {
-    description: 'A blank template using Payload in a Next.js app.',
-    title: 'Payload Blank Template',
-}
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
     const { children } = props
@@ -44,4 +43,13 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
             </body>
         </html>
     )
+}
+
+export const metadata: Metadata = {
+    metadataBase: new URL(getServerSideURL()),
+    openGraph: mergeOpenGraph(),
+    twitter: {
+        card: 'summary_large_image',
+        creator: '@payloadcms',
+    },
 }
