@@ -18,7 +18,7 @@ import { Pages } from './collections/Pages'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-const BASE_URL = process.env.SITE_URL || 'http://localhost:3000'
+const BASE_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
 
 export default buildConfig({
     admin: {
