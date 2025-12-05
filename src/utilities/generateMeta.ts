@@ -26,6 +26,7 @@ export const generateMeta = async (args: { doc: Partial<Page> }): Promise<Metada
         openGraph: mergeOpenGraph({
             title,
             description,
+            siteName: title,
             images: ogImage ? [{ url: ogImage }] : undefined,
             url: Array.isArray(doc?.slug) ? doc?.slug.join('/') : '/',
         }),
