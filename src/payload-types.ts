@@ -228,13 +228,14 @@ export interface Media {
  */
 export interface Page {
   id: number;
+  layout?: (HeroBlock | GalleryBlock | TestimonialBlock | CallToActionBlock | FormBlock)[] | null;
+  meta?: {};
   title: string;
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
    */
   generateSlug?: boolean | null;
   slug: string;
-  layout?: (HeroBlock | GalleryBlock | TestimonialBlock | CallToActionBlock | FormBlock)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -772,9 +773,6 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
-  title?: T;
-  generateSlug?: T;
-  slug?: T;
   layout?:
     | T
     | {
@@ -784,6 +782,10 @@ export interface PagesSelect<T extends boolean = true> {
         cta?: T | CallToActionBlockSelect<T>;
         form?: T | FormBlockSelect<T>;
       };
+  meta?: T | {};
+  title?: T;
+  generateSlug?: T;
+  slug?: T;
   updatedAt?: T;
   createdAt?: T;
 }

@@ -9,6 +9,7 @@ import { formBuilderPlugin, fields } from '@payloadcms/plugin-form-builder'
 import { name, label, required, width, placeholder } from '@/plugins/formBuilder/fieldConfig'
 //import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { resendAdapter } from '@payloadcms/email-resend'
+import { seoPlugin } from '@payloadcms/plugin-seo'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
@@ -51,9 +52,14 @@ export default buildConfig({
     }),
     sharp,
     plugins: [
-        // storage-adapter-placeholder
+        /**/
+        seoPlugin({
+            generateTitle: ({ doc }) => doc.title,
+            generateDescription: ({ doc }) => doc.plaintext,
+            generateURL: ({ doc, collectionSlug }) =>
+                `https://example.com/${collectionSlug}/${doc.slug}`,
+        }),
         formBuilderPlugin({
-            /* */
             fields: {
                 text: {
                     fields: [
