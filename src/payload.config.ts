@@ -18,6 +18,8 @@ import { Pages } from './collections/Pages'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+const BASE_URL = process.env.SITE_URL || 'http://localhost:3000'
+
 export default buildConfig({
     admin: {
         user: Users.slug,
@@ -56,8 +58,7 @@ export default buildConfig({
         seoPlugin({
             generateTitle: ({ doc }) => doc.title,
             generateDescription: ({ doc }) => doc.plaintext,
-            generateURL: ({ doc, collectionSlug }) =>
-                `https://example.com/${collectionSlug}/${doc.slug}`,
+            generateURL: ({ doc }) => `${BASE_URL}/${doc.slug}`,
         }),
         formBuilderPlugin({
             fields: {

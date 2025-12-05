@@ -229,7 +229,14 @@ export interface Media {
 export interface Page {
   id: number;
   layout?: (HeroBlock | GalleryBlock | TestimonialBlock | CallToActionBlock | FormBlock)[] | null;
-  meta?: {};
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+  };
   title: string;
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
@@ -782,7 +789,13 @@ export interface PagesSelect<T extends boolean = true> {
         cta?: T | CallToActionBlockSelect<T>;
         form?: T | FormBlockSelect<T>;
       };
-  meta?: T | {};
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
   title?: T;
   generateSlug?: T;
   slug?: T;

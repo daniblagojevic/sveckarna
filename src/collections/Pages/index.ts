@@ -43,7 +43,25 @@ export const Pages: CollectionConfig = {
                 {
                     label: 'SEO',
                     name: 'meta',
-                    fields: [],
+                    fields: [
+                        MetaTitleField({
+                            hasGenerateFn: true,
+                        }),
+                        MetaDescriptionField({
+                            hasGenerateFn: true,
+                        }),
+                        MetaImageField({
+                            relationTo: 'media',
+                        }),
+                        PreviewField({
+                            hasGenerateFn: true,
+                        }),
+                        OverviewField({
+                            titlePath: 'meta.title',
+                            descriptionPath: 'meta.description',
+                            imagePath: 'meta.image',
+                        }),
+                    ],
                 },
             ],
         },
@@ -51,6 +69,9 @@ export const Pages: CollectionConfig = {
             name: 'title',
             type: 'text',
             required: true,
+            admin: {
+                position: 'sidebar',
+            },
         },
         slugField(),
     ],
