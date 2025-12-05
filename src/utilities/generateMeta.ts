@@ -18,7 +18,13 @@ export const generateMeta = async (args: { doc: Partial<Page> }): Promise<Metada
     const { doc } = args || {}
     const ogImage = getImageURL(doc?.meta?.image)
     const title = doc?.meta?.title ? doc?.meta?.title + ' | Svečkarna' : 'Svečkarna'
-    const description = doc.meta?.description ? doc.meta.description : ''
+    const description = doc?.meta?.description ? doc.meta.description : ''
+
+    let url = Array.isArray(doc?.slug) ? '/' + doc.slug.join('/') : doc?.slug ? `${doc.slug}` : '/'
+    if (url == 'home') {
+        url = ''
+    }
+    url = getServerSideURL() + '/' + url
 
     return {
         title,
@@ -28,7 +34,8 @@ export const generateMeta = async (args: { doc: Partial<Page> }): Promise<Metada
             description,
             siteName: title,
             images: ogImage ? [{ url: ogImage }] : undefined,
-            url: Array.isArray(doc?.slug) ? doc?.slug.join('/') : '/',
+            //url: Array.isArray(doc.slug) ? doc.slug.join('/') : '/',
+            url,
         }),
     }
 }
