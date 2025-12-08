@@ -38,13 +38,13 @@ export const FormBlock: React.FC<Props> = ({ highlight, title, text, form }) => 
                                 <div className="py-8 px-6 sm:p-12 bg-limed-oak-500 rounded-xl text-white relative overflow-hidden h-full">
                                     <div className="pb-4 md:pb-6 lg:pb-12">
                                         <p className="">
-                                            Aenean mattis ultrices aliquet. Praesent sit amet orci
-                                            nisi. Praesent maximus quis est maximus consequat.
+                                            Odgovorimo vam v najkrajšem možnem času in poskrbimo, da
+                                            bo vaša izkušnja prijetna in enostavna.
                                         </p>
                                     </div>
                                     <div className="py-3">
                                         <a
-                                            href="mailto: info@sveckarna.si"
+                                            href="mailto:info@sveckarna.si"
                                             className="flex gap-2 items-center hover:underline w-fit"
                                         >
                                             <FontAwesomeIcon icon={faEnvelope} />
@@ -53,11 +53,11 @@ export const FormBlock: React.FC<Props> = ({ highlight, title, text, form }) => 
                                     </div>
                                     <div className="py-3">
                                         <a
-                                            href="tel: +386 40 040 040"
+                                            href="tel:+386 31 495 173"
                                             className="flex gap-2 items-center hover:underline w-fit"
                                         >
                                             <FontAwesomeIcon icon={faPhone} />
-                                            <span>(0)40 040 040</span>
+                                            <span>(0)31 495 173</span>
                                         </a>
                                     </div>
                                     <div className="absolute bottom-0 end-0 z-0 pointer-events-none">

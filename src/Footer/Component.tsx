@@ -25,7 +25,7 @@ export async function Footer() {
                         <div className="mb-3">
                             <div className="mb-2">
                                 <a
-                                    href="mailto: info@sveckarna.si"
+                                    href="mailto:info@sveckarna.si"
                                     className="flex gap-2 items-center justify-center hover:underline w-fit m-auto"
                                 >
                                     <FontAwesomeIcon icon={faEnvelope} />
@@ -34,11 +34,11 @@ export async function Footer() {
                             </div>
                             <div className="">
                                 <a
-                                    href="tel: +386 40 040 040"
+                                    href="tel:+386 31 495 173"
                                     className="flex gap-2 items-center justify-center hover:underline w-fit m-auto"
                                 >
                                     <FontAwesomeIcon icon={faPhone} />
-                                    <span>(0)40 040 040</span>
+                                    <span>(0)31 495 173</span>
                                 </a>
                             </div>
                         </div>
