@@ -25,7 +25,7 @@ export const HeroBlock: React.FC<Props> = ({ title, text, image1, image2, image3
                     <div className="grid grid-cols-12 gap-y-6 md:gap-y-12 gap-x-0 md:gap-12">
                         <div className="col-span-12 md:col-span-6">
                             <div className="pb-4 md:pb-12">
-                                <h1 className="font-mollie-glaston font-light text-5xl lg:text-6xl xl:text-[5rem]">
+                                <h1 className="font-juana font-light text-5xl lg:text-6xl xl:text-[5rem]">
                                     {title}
                                 </h1>
                             </div>

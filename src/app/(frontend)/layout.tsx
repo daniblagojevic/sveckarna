@@ -19,9 +19,15 @@ const inter = Inter({
     display: 'swap',
     variable: '--font-inter',
 })
+/*
 const mollieGlaston = localFont({
     src: '../../../public/fonts/MollieGlaston.ttf',
     variable: '--font-mollie-glaston',
+})
+*/
+const juana = localFont({
+    src: '../../../public/fonts/JuanaRegular.otf',
+    variable: '--font-juana',
 })
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
@@ -29,7 +35,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
     return (
         <html
-            className={`${inter.variable} ${mollieGlaston.variable} scroll-smooth`}
+            className={`${inter.variable} ${juana.variable} scroll-smooth`}
             lang="en"
             suppressHydrationWarning
         >

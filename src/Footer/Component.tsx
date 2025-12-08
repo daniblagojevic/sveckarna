@@ -10,7 +10,7 @@ export async function Footer() {
                 <div className="py-14 md:py-20 bg-spring-wood-50 text-sm text-masala-900">
                     <div className="container text-center">
                         <div className="mb-3">
-                            <span className="inline-flex items-center gap-x-2 text-3xl font-mollie-glaston">
+                            <span className="inline-flex items-center gap-x-2 text-3xl font-juana">
                                 <Image
                                     alt="Payload Logo"
                                     width={50}

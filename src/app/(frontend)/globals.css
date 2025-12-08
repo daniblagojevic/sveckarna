@@ -89,7 +89,8 @@
 
     --font-display: var(--font-inter);
     --font-inter: var(--font-inter); 
-    --font-mollie-glaston: var(--font-mollie-glaston); 
+    /*--font-mollie-glaston: var(--font-mollie-glaston);*/
+    --font-juana: var(--font-juana);
 }
 
 @layer base {

@@ -9,7 +9,7 @@ export async function Header() {
                 <nav className="flex items-center justify-between">
                     <div className="">
                         <Link className="flex-none" href="/" aria-label="Brand">
-                            <span className="inline-flex items-center gap-x-2 text-3xl font-mollie-glaston">
+                            <span className="inline-flex items-center gap-x-2 text-3xl font-juana">
                                 <Image
                                     alt="Payload Logo"
                                     width={50}
