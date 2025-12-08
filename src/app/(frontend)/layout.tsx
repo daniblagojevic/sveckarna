@@ -26,7 +26,7 @@ const mollieGlaston = localFont({
 })
 */
 const juana = localFont({
-    src: '../../../public/fonts/JuanaRegular.otf',
+    src: '../../../public/fonts/JuanaLight.otf',
     variable: '--font-juana',
 })
 
